@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <title>Randomize Number</title>
+
+  <style>
+
+    body{
+      height: 643px;
+      background: pink; /* For browsers that do not support gradients */
+      background: linear-gradient(to bottom right, pink, white); /* Standard syntax (must be last) */
+    }
+    .centered {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-top: -150px;
+      margin-left: -150px;
+    }
+
+    input[type=number] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #555;
+      outline: none;
+  }
+
+  input[type=number]:focus {
+      background-color: pink ;
+  }
+
+
+  .inputsubmit {
+      background-color: pink; /* Green */
+      border-radius: 20px;
+      border:1px solid grey;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      }
+
+  #header1{
+      color:grey;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }
+
+  </style>
+</head>
+<body>
+  <form class="centered">
+  <h1 id="header1">Get Winning Number</h1>
+  <input type="number" placeholder="Input max number" id="inputnumber" >
+  <button type="button" class ="inputsubmit" onclick="randomize()">Submit</button>
+  <p id="result"> Latest Winning Number : <br><br> </p>
+  </form>
+<script>
+  function randomize(){
+    var inputNum = document.getElementById("inputnumber").value
+    var result=Math.floor(Math.random() * Math.floor(inputNum))
+    console.log(result)
+    swal("Winning number",`${result}`)
+    document.getElementById("result").innerHTML+=`<li>`+result+`</li>` + `<br>`
+    
+  }
+
+  function JSalert(){
+	  swal("A Basic JS alert by a plug-in");
+  }
+</script>
+</body>
+</html>
